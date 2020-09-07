@@ -1,5 +1,7 @@
 {
   "name": "mhworld_db",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

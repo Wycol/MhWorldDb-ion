@@ -14,6 +14,14 @@ const routes: Routes = [
   {
     path: 'monsters',
     loadChildren: () => import('./monsters/monsters.module').then( m => m.MonstersPageModule)
+  },
+  {
+    path: 'weapons',
+    loadChildren: () => import('./weapons/weapons.module').then( m => m.WeaponsPageModule)
+  },
+  {
+    path: 'armors',
+    loadChildren: () => import('./armors/armors.module').then( m => m.ArmorsPageModule)
   }
 ];
 

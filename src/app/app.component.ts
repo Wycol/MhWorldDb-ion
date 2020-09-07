@@ -18,14 +18,14 @@ export class AppComponent implements OnInit {
       icon: '/assets/ion-custom-icons/monstericon.png'
     },
     {
-      title: 'Outbox',
-      url: '/folder/Outbox',
-      icon: '/assets/ion-custom-icons/monstericon.png'
+      title: 'Weapons',
+      url: '/weapons',
+      icon: '/assets/images/great_sword.png'
     },
     {
-      title: 'Favorites',
-      url: '/folder/Favorites',
-      icon: '/assets/ion-custom-icons/monstericon.png'
+      title: 'Armors',
+      url: '/armors',
+      icon: '/assets/images/armor.png',
     },
     {
       title: 'Archived',

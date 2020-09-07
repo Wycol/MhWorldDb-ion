@@ -1,0 +1,70 @@
+<ion-header [translucent]="false">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/weapons"></ion-back-button>
+      </ion-buttons>  
+    <ion-title>{{this.routeValue }}</ion-title>
+    <ion-buttons slot="end"
+      ><ion-button><ion-icon name="search"></ion-icon></ion-button
+    ></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col
+        ><ion-list lines="none"
+          ><ion-item class="ion-no-lines">
+            <ion-thumbnail slot="start">
+              <ion-img
+                class="my-img"
+                [src]="'/assets/images/'+routeValue.toLowerCase().split(' ').join('_') +'.png'"
+              ></ion-img>
+            </ion-thumbnail>
+            <p innerHTML="{{this.selected_weapon.desc}}">
+            </p>
+          </ion-item></ion-list
+        ><ion-list
+          ><ion-item>
+            <p innerHTML="{{this.selected_weapon.subDesc}}">
+            </p> </ion-item
+          ><ion-item-divider color="primary">
+            <ion-label>
+              <h2><b>{{this.selected_weapon.id}} Traits & Abilities</b></h2>
+            </ion-label>
+          </ion-item-divider>
+          <ul>
+            <li *ngFor="let trait of this.selected_weapon.trait">{{trait}}</li>
+          </ul>
+          <ion-item-divider color="primary">
+            <ion-label>
+              <h2><b>{{this.routeValue }} Videoguide</b></h2>
+            </ion-label>
+          </ion-item-divider>
+          <ion-item class="video">
+         <div class="container">
+            <iframe frameBorder="0" allow="fullscreen" class="responsive-iframe" [src]="this.selected_weapon.video"></iframe>
+          </div></ion-item> 
+          <ion-item-divider color="primary">
+            <ion-label>
+              <h2><b>{{this.routeValue }} Advantages</b></h2>
+            </ion-label>
+          </ion-item-divider>
+          <ul> 
+            <li *ngFor="let trait of this.selected_weapon.adv">{{trait}}</li>
+           </ul>
+          
+          <ion-item-divider color="primary">
+            <ion-label>
+              <h2><b>{{this.routeValue }} Disadvantages</b></h2>
+            </ion-label>
+          </ion-item-divider>
+          <ul> 
+            <li *ngFor="let trait of this.selected_weapon.disadv">{{trait}}</li>
+
+           </ul></ion-list
+      ></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

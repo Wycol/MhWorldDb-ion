@@ -1,0 +1,22 @@
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.my-img{
+  border: 2px solid var(--ion-color-primary-tint);
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);}
+
+  p{font-size:13px}
+
+  .weakness{
+    display: flex;
+    align-items: center;
+    padding: 10px 0px 10px 20px;
+  }
+  .ailment{
+    margin-top:0px;
+    margin-bottom: 0px;
+    padding-left: 16px;
+  }

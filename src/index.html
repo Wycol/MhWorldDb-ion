@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>MHWorld Db</title>
+  <title>MHWorld DB</title>
 
   <base href="/" />
 
@@ -21,6 +21,26 @@
 
 <body>
   <app-root></app-root>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCYmilttlAe1GHPwetUSZ0VAmGCqXMmZDo",
+    authDomain: "monsterhunterdb-cf0d4.firebaseapp.com",
+    databaseURL: "https://monsterhunterdb-cf0d4.firebaseio.com",
+    projectId: "monsterhunterdb-cf0d4",
+    storageBucket: "monsterhunterdb-cf0d4.appspot.com",
+    messagingSenderId: "859035313407",
+    appId: "1:859035313407:web:a2554ae537a9d56c4518ca"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
 </body>
 
 </html>
