@@ -37,3 +37,15 @@
     background: unset !important;
   }
 }
+.empty-slide{
+  background-image: url("/assets/images/empty_page.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 80vh;
+}
+p.error-text{
+  font-size:30px !important;
+  text-shadow: 0px 0px 5px black;
+  color:white;
+}    

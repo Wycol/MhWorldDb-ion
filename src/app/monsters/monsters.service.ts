@@ -37,7 +37,6 @@ export class MonstersService {
       .get<MonsterData>(`https://mhw-db.com/monsters/${id}`)
       .pipe(
         map((monster) => {
-          console.log(monster);
           return new Monster(
             id,
             monster.name,
