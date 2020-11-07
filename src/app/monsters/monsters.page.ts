@@ -11,7 +11,10 @@ import { IonSlides, IonSegment, IonSegmentButton } from "@ionic/angular";
   styleUrls: ["./monsters.page.scss"],
 })
 export class MonstersPage implements OnInit, OnDestroy {
+  toggle = false;
+  searching = false;
   loadedMonsters: Monster[];
+  filteredMonsters: Monster[];
   private monSub: Subscription;
   segment = 0;
   selectedSlide: any;
@@ -19,8 +22,9 @@ export class MonstersPage implements OnInit, OnDestroy {
   largeMonsters: Monster[];
   loading = false;
 
-  
-  constructor(private mSrv: MonstersService) {}
+
+
+  constructor(private mSrv: MonstersService) { }
   ngOnDestroy() {
     if (this.monSub) {
       this.monSub.unsubscribe();
@@ -41,14 +45,32 @@ export class MonstersPage implements OnInit, OnDestroy {
     });
   }
 
-  async changeSlide(slides : IonSlides) { 
+  async changeSlide(slides: IonSlides) {
     this.selectedSlide = slides;
     slides.getActiveIndex().then(selectedIndex => {
       this.segment = selectedIndex;
     })
   }
 
-  async segmentChanged(ev){
+  async segmentChanged(ev) {
     await this.selectedSlide.slideTo(this.segment)
+  }
+  changeToggle() {
+    this.toggle = !this.toggle;
+    this.searching = false;
+  }
+
+  filterList(ev) {
+    let searchTerm = ev.srcElement.value;
+    if (searchTerm.length > 0) {
+      this.searching = true;
+      this.filteredMonsters = this.loadedMonsters.filter(monsters => {
+          return (monsters.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1);
+      });
+    }
+
+  }
+  unFilter() {
+    this.searching = false
   }
 }

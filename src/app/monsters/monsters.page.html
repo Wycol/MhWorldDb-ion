@@ -3,12 +3,14 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Monsters</ion-title>
+    <ion-title *ngIf="toggle == false">Monsters</ion-title>
+    <ion-searchbar (ionClear)="unFilter()"	(ionInput)="filterList($event)" *ngIf="toggle == true"></ion-searchbar>
     <ion-buttons slot="end"
-      ><ion-button><ion-icon name="search"></ion-icon></ion-button
+      ><ion-button (click)="changeToggle()"><ion-icon name="search"></ion-icon></ion-button
     ></ion-buttons>
+    
   </ion-toolbar>
-  <ion-segment [(ngModel)] ="segment" class="disable-ripple" translucent="false" (ionChange)="segmentChanged($event)">
+  <ion-segment *ngIf="searching == false" [(ngModel)] ="segment" class="disable-ripple" translucent="false" (ionChange)="segmentChanged($event)">
     <ion-segment-button
       class="full-width-tab segment"
       value="0"
@@ -43,6 +45,7 @@
   </ion-grid>
 
   <ion-slides
+    *ngIf="searching == false"
     #slides
     pager="false"
     (ionSlideDidChange)="changeSlide(slides)"
@@ -99,4 +102,27 @@
       </ion-grid>
     </ion-slide>
   </ion-slides>
+  <ion-grid *ngIf="!loading || searching" class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12" size-sm="6" *ngFor="let monster of filteredMonsters">
+        <ion-list
+          style="width: 100%;"
+          class="ion-no-padding background-black"
+        >
+          <ion-item lines="full" [routerLink]="['/','monsters',monster.id]">
+            <ion-thumbnail slot="start">
+              <ion-img
+                class="my-img"
+                [src]="'/assets/images/'+monster.imgUrl +'.png'"
+              ></ion-img>
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{ monster.name |titlecase }}</h2>
+              <p>{{ monster.species |titlecase}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
